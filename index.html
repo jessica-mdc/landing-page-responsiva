@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessica Marques | Análise e Desenvolvimento de Sistemas</title>
+<style>
+  :root {
+    --azul-claro: #5BA9D9;
+    --azul-suave: #EAF4FB;
+    --azul-borda: #D3E7F5;
+    --texto-principal: #1F2937;
+    --texto-secundario: #5B6472;
+    --branco: #FFFFFF;
+    --fundo: #FAFCFE;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto-principal);
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* HEADER */
+  header {
+    background-color: var(--branco);
+    border-bottom: 1px solid var(--azul-borda);
+    padding: 20px 0;
+  }
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--texto-principal);
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 15px;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 64px;
+    text-align: center;
+  }
+
+  .hero p.eyebrow {
+    color: var(--azul-claro);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin-bottom: 20px;
+  }
+
+  .hero p.subtitle {
+    font-size: 17px;
+    color: var(--texto-secundario);
+    max-width: 600px;
+    margin: 0 auto 32px;
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background-color: var(--azul-claro);
+    color: var(--branco);
+  }
+
+  .btn-secondary {
+    background-color: var(--branco);
+    color: var(--texto-principal);
+    border: 1px solid var(--azul-borda);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 64px 0;
+  }
+
+  section.alt {
+    background-color: var(--azul-suave);
+  }
+
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--azul-claro);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+
+  .section-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--texto-principal);
+    margin-bottom: 16px;
+  }
+
+  /* SOBRE */
+  .sobre-conteudo {
+    font-size: 16px;
+    color: var(--texto-secundario);
+    max-width: 700px;
+  }
+
+  .sobre-conteudo p {
+    margin-bottom: 16px;
+  }
+
+  /* FORMAÇÃO */
+  .formacao-card {
+    background-color: var(--branco);
+    border: 1px solid var(--azul-borda);
+    border-radius: 8px;
+    padding: 28px;
+    margin-top: 24px;
+  }
+
+  .formacao-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .formacao-card .instituicao {
+    font-size: 14px;
+    color: var(--azul-claro);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .formacao-card p {
+    color: var(--texto-secundario);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    background-color: var(--azul-suave);
+    color: var(--azul-claro);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  /* PORTFOLIO */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .portfolio-card {
+    background-color: var(--branco);
+    border: 1px solid var(--azul-borda);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .portfolio-card-header {
+    background-color: var(--azul-suave);
+    padding: 32px;
+    text-align: center;
+  }
+
+  .portfolio-icon {
+    width: 56px;
+    height: 56px;
+    background-color: var(--branco);
+    border: 1px solid var(--azul-borda);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 24px;
+  }
+
+  .portfolio-card-body {
+    padding: 28px;
+  }
+
+  .portfolio-card-body h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-card-body p {
+    color: var(--texto-secundario);
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-label {
+    display: inline-block;
+    background-color: var(--azul-suave);
+    color: var(--azul-claro);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 4px;
+  }
+
+  /* CONTATO */
+  .contato-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+    max-width: 480px;
+  }
+
+  .contato-item {
+    background-color: var(--branco);
+    border: 1px solid var(--azul-borda);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .contato-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--azul-suave);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .contato-item .label {
+    font-size: 13px;
+    color: var(--texto-secundario);
+    margin-bottom: 2px;
+  }
+
+  .contato-item .valor {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--texto-principal);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--azul-borda);
+    padding: 28px 0;
+    text-align: center;
+  }
+
+  footer p {
+    font-size: 14px;
+    color: var(--texto-secundario);
+  }
+
+  @media (min-width: 640px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div class="logo">Jessica Marques</div>
+      <nav>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#formacao">Formação</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Análise e Desenvolvimento de Sistemas</p>
+      <h1>Jessica Marques</h1>
+      <p class="subtitle">29 anos, estudante de ADS e em formação na área de análise de dados, com foco em Excel, SQL e Power BI.</p>
+      <div class="hero-buttons">
+        <a href="#portfolio" class="btn btn-primary">Ver portfólio</a>
+        <a href="#contato" class="btn btn-secondary">Entrar em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <p class="section-title">Sobre mim</p>
+      <h2 class="section-heading">Quem sou eu</h2>
+      <div class="sobre-conteudo">
+        <p>Olá, me chamo Jessica. Tenho 29 anos e atualmente estou cursando Análise e Desenvolvimento de Sistemas pela Uninter.</p>
+        <p>Sou apaixonada por tecnologia e estou me aprofundando na área de análise de dados, buscando aplicar o que aprendo em projetos práticos.</p>
+        <p>Estou em busca de novos desafios e oportunidades para crescer profissionalmente. Fique à vontade para explorar meu portfólio e entrar em contato comigo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao" class="alt">
+    <div class="container">
+      <p class="section-title">Formação</p>
+      <h2 class="section-heading">Formação profissional</h2>
+      <div class="formacao-card">
+        <h3>Análise e Desenvolvimento de Sistemas</h3>
+        <p class="instituicao">Uninter · Em andamento</p>
+        <p>Aprofundamento na área de análise de dados, com cursos de extensão complementares.</p>
+        <div class="tags">
+          <span class="tag">Excel</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Power BI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <p class="section-title">Portfólio</p>
+      <h2 class="section-heading">Projetos</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <div class="portfolio-card-header">
+            <div class="portfolio-icon">📊</div>
+          </div>
+          <div class="portfolio-card-body">
+            <h3>Dashboard de Vendas</h3>
+            <p>Meu primeiro dashboard desenvolvido em Power BI, com análise de dados de vendas, indicadores e visualizações para apoiar a tomada de decisão.</p>
+            <span class="portfolio-label">Power BI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="alt">
+    <div class="container">
+      <p class="section-title">Contato</p>
+      <h2 class="section-heading">Vamos conversar</h2>
+      <div class="contato-grid">
+        <div class="contato-item">
+          <div class="contato-icon">✉️</div>
+          <div>
+            <div class="label">E-mail</div>
+            <div class="valor">jessicamarques2504@hotmail.com</div>
+          </div>
+        </div>
+        <div class="contato-item">
+          <div class="contato-icon">📞</div>
+          <div>
+            <div class="label">Telefone</div>
+            <div class="valor">(21) 97626-5424</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Jessica Marques — Análise e Desenvolvimento de Sistemas</p>
+    </div>
+  </footer>
+
+</body>
+</html>
